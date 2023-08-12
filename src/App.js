@@ -1,9 +1,10 @@
 import './styles/styles.css';
+import TopBar from './components/TopBar';
 
 function App() {
   return (
     <div className="App">
-      <h1>Catstagram</h1>
+      <TopBar />
     </div>
   );
 }
