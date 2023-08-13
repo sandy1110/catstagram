@@ -11,7 +11,7 @@ const ImagesGrid = () => {
         requestCats();
     },[]);
 
-    const requestCats= async () => {
+    const requestCats = async () => {
         const headers = {
             'Content-Type' : 'application/json',
             'x-api-key' : API_KEY,
@@ -19,7 +19,6 @@ const ImagesGrid = () => {
 
         const apiResponse = await fetch(API_URL, {headers});
         const jsonResult = await apiResponse.json();
-        console.log(jsonResult);
         setCatsArray(jsonResult);
     }
 
@@ -27,7 +26,7 @@ const ImagesGrid = () => {
         <>
         <div className="images-grid">
         {catsArray === null ? <h2>Loading...</h2> :catsArray.map(cat =>(
-            <div className="cat-image-box">
+            <div className="cat-image-box" key={cat.id}>
             <img className="cat-image" src={cat.url} alt={cat.id} />
             </div>
         ))}
