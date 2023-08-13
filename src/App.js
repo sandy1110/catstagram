@@ -2,6 +2,7 @@ import './styles/styles.css';
 import TopBar from './components/TopBar';
 import React, { useState, useEffect } from "react";
 import FeaturedContent from './components/FeaturedContent';
+import ImagesGrid from './components/ImagesGrid';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
     <div className="App">
       <TopBar breeds={breeds} />
       <FeaturedContent breeds={breeds} />
+      <ImagesGrid />
     </div>
   );
 }
