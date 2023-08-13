@@ -1,5 +1,6 @@
 import "../styles/imagesGrid.css"
 import React, {useEffect, useState} from "react";
+import GlobalCatImage from "./GlobalCatImage";
 
 const ImagesGrid = () => {
     const API_URL = "https://api.thecatapi.com/v1/images/search?limit=20";
@@ -26,9 +27,7 @@ const ImagesGrid = () => {
         <>
         <div className="images-grid">
         {catsArray === null ? <h2>Loading...</h2> :catsArray.map(cat =>(
-            <div className="cat-image-box" key={cat.id}>
-            <img className="cat-image" src={cat.url} alt={cat.id} />
-            </div>
+            <GlobalCatImage id={cat.id} url={cat.url} />
         ))}
         </div>
         </>
