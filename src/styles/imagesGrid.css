@@ -1,0 +1,21 @@
+.images-grid{
+    width: 100%;
+    padding: 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cat-image-box{
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 0.5em;
+}
+
+.cat-image{
+    height: 100%;
+    width: 100%;
+}

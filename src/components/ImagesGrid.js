@@ -1,4 +1,4 @@
-import "../styles/featuredContent.css"
+import "../styles/imagesGrid.css"
 import React, {useEffect, useState} from "react";
 
 const ImagesGrid = () => {
@@ -27,7 +27,9 @@ const ImagesGrid = () => {
         <>
         <div className="images-grid">
         {catsArray === null ? <h2>Loading...</h2> :catsArray.map(cat =>(
-            <h1 key={cat.id}>{cat.id}</h1>
+            <div className="cat-image-box">
+            <img className="cat-image" src={cat.url} alt={cat.id} />
+            </div>
         ))}
         </div>
         </>
