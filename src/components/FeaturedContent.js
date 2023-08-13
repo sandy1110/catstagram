@@ -15,7 +15,7 @@ const FeaturedContent = (props) => {
             lista.push(i);
         }
         lista = lista.sort(function() {return Math.random() - 0.5});
-        setRandomBreeds(lista.splice(0,6));
+        setRandomBreeds(lista.splice(0,7));
 
         randomBreeds.map(cat =>{
             const catId = breeds[cat].id;

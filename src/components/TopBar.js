@@ -1,6 +1,6 @@
 import "../styles/topBar.css"
 import React, { useState } from "react";
-import catLogo from "../images/catLogo.png"
+import catLogo from "../images/cat.png"
 
 const TopBar = (props) => {
     const breeds = props.breeds;

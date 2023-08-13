@@ -4,8 +4,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background-color: #1e1b22;
-	color: #f2ebf2;
+	background-color: #c5baf9;
+	color: #1e1b22;
 }
 
 .logo-name{
@@ -17,6 +17,7 @@
 
 .cat-logo{
 	max-width: 120px;
+	color: #f2ebf2;
 }
 
 .breed-selector{
