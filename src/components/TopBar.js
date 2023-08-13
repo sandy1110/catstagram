@@ -1,17 +1,19 @@
 import "../styles/topBar.css"
-import React, { useState } from "react";
-import { Dropdown } from 'primereact/dropdown';
+import React, { useState, useEffect } from "react";
 import catLogo from "../images/catLogo.png"
 
 const TopBar = () => {
-    const [selectedBreed, setSelectedBreed] = useState(null);
-    const cities = [
-        { name: 'New York', code: 'NY' },
-        { name: 'Rome', code: 'RM' },
-        { name: 'London', code: 'LDN' },
-        { name: 'Istanbul', code: 'IST' },
-        { name: 'Paris', code: 'PRS' }
-    ];
+    const [breeds, setBreeds] = useState(null);
+    const [selectedBreed, setSelectedBreed] = useState("Select breed");
+
+    useEffect(( )=> {
+        fetch("https://api.thecatapi.com/v1/breeds").then(res=>{ return res.json()})
+            .then(res=>{
+                console.log("Breeds",res);
+                setBreeds(res);
+            })
+    },[]);
+    
     return (
         <>
         <div className="app-bar">
@@ -20,8 +22,11 @@ const TopBar = () => {
                 <h1>Catstagram</h1>
             </div> 
             <div className="breed-selector">
-                <select className="selector">
-                    <option>Buscar por raza</option>
+                <select className="selector" value="Select Breed">
+                <option value="hiden">- Select Breed -</option>
+                    {breeds && breeds.map(breed => (
+                        <option>{breed.name}</option>
+                    ))}
                 </select>
 
             </div> 
