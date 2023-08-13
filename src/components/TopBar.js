@@ -1,4 +1,4 @@
-import "../styles/styles.css"
+import "../styles/topBar.css"
 import React, { useState } from "react";
 import { Dropdown } from 'primereact/dropdown';
 import catLogo from "../images/catLogo.png"
@@ -19,9 +19,9 @@ const TopBar = () => {
                 <img className="cat-logo" src={catLogo} alt="Logo de catstagram" />
                 <h1>Catstagram</h1>
             </div> 
-            <div className="card flex justify-content-center">
-                <select>
-                    <option>opcion</option>
+            <div className="breed-selector">
+                <select className="selector">
+                    <option>Buscar por raza</option>
                 </select>
 
             </div> 
