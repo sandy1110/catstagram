@@ -12,6 +12,7 @@ body, html {
 .App{
 	display: flex;
 	flex-wrap: wrap;
+	row-gap: 20px;
 	align-items: center;
 	justify-content: center;
 	font-family: Lato, sans-serif;

@@ -1,24 +1,15 @@
 import "../styles/topBar.css"
-import React, { useState, useEffect } from "react";
-import Select from "react-select"
+import React, { useState } from "react";
 import catLogo from "../images/catLogo.png"
 
-const TopBar = () => {
-    const [breeds, setBreeds] = useState(null);
-    const [selectedBreed, setSelectedBreed] = useState("Select breed");
-
-    useEffect(( )=> {
-        fetch("https://api.thecatapi.com/v1/breeds").then(res=>{ return res.json()})
-            .then(res=>{
-                console.log("Breeds",res);
-                setBreeds(res);
-                console.log(breeds);
-            })
-    },[]);
+const TopBar = (props) => {
+    const breeds = props.breeds;
+    const [selectedBreed, setSelectedBreed] = useState(null);
 
     const handleSelectedBreed = (e) => {
         setSelectedBreed(e.target.value)
-        console.log("Selected breed",selectedBreed)
+        console.log("Selected",e.target.value);
+        console.log("Selected breed",selectedBreed);
     }
     
     return (
@@ -31,10 +22,9 @@ const TopBar = () => {
             <div className="breed-selector">
                 <select className="selector" value={selectedBreed} onChange={ handleSelectedBreed }>
                     {breeds && breeds.map(breed => (
-                        <option  key={breed.id}>{breed.name}</option>
+                        <option key={breed.id}>{breed.name}</option>
                     ))}
                 </select>
-
             </div> 
         </div></>
     );

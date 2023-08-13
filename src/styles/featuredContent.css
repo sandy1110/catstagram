@@ -1,0 +1,25 @@
+.featured-breeds{
+    width: 100%;
+    display: flex;
+    padding: 20px 100px;
+    justify-content: space-around;
+    column-gap: 10px;
+}
+
+.featured-breed{
+    width: 60px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+}
+
+.featured-image{
+    min-height: 60px;
+    width:60px;
+    border-radius: 3.5em;
+}
+
+.featured-cat-name{
+    text-align: center;
+}
