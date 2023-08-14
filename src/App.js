@@ -15,14 +15,16 @@ function App() {
         setBreeds(jsonResponse);
       }
       getBreeds();
-      console.log(selectedBreed)
     },[]);
 
   return (
     <div className="App">
+      {breeds === null ? (<h2>Loading...</h2>) : (
+        <>
       <TopBar breeds={breeds} />
       <FeaturedContent breeds={breeds} />
       <ImagesGrid breeds={breeds} selectedBreed={selectedBreed} />
+      </>)}
     </div>
   );
 }

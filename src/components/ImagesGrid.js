@@ -4,24 +4,25 @@ import GlobalCatImage from "./GlobalCatImage";
 
 const ImagesGrid = (props) => {
     const breeds = props.breeds;
-    //const selectedBreed = breeds[props.selectedBreed].id;
-    const API_URL = `https://api.thecatapi.com/v1/images/search?breed_ids=beng&limit=20`;
+    const selectedBreed = breeds[props.selectedBreed];
+    const API_URL = `https://api.thecatapi.com/v1/images/search?breed_ids=${selectedBreed.id}&limit=20`
     const API_KEY = "cc87643e-9491-43ec-a884-5bfb536d96c4";
     const [catsArray, setCatsArray] = useState([]);
   
     useEffect(() => {
-      requestCats();
+        requestCats();
     }, []);
+
   
     const requestCats = async () => {
-      const headers = {
-        'Content-Type': 'application/json',
-        'x-api-key': API_KEY,
-      };
-  
-      const apiResponse = await fetch(API_URL,{headers});
-      const jsonResult = await apiResponse.json();
-      setCatsArray(jsonResult);
+        const headers = {
+            'Content-Type': 'application/json',
+            'x-api-key': API_KEY,
+        };
+    
+        const apiResponse = await fetch(API_URL,{headers});
+        const jsonResult = await apiResponse.json();
+        setCatsArray(jsonResult);
     };
   
     return (
@@ -33,7 +34,7 @@ const ImagesGrid = (props) => {
             catsArray.map((cat) => (
                 <React.Fragment key={cat.id}>
                     <GlobalCatImage id={cat.id} catImage={cat.url} 
-                         />
+                        breed={selectedBreed} />
               </React.Fragment>
             ))
           )}

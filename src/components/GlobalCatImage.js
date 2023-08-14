@@ -21,7 +21,7 @@ const GlobalCatImage = (props) => {
             <img className="cat-image" src={props.catImage} alt={props.id} />
         </div>
         {visibility && (
-        <DetailedCatImage  image={props.catImage} onVisibleChange={hideDetailedCat} />
+        <DetailedCatImage breed={props.breed} image={props.catImage} onVisibleChange={hideDetailedCat} />
         )}
         </>
     );
