@@ -5,7 +5,7 @@ import FeaturedContent from './components/FeaturedContent';
 import ImagesGrid from './components/ImagesGrid';
 
 function App() {
-  const [ selectedBreed, setSelectedBreed ] = useState(Math.floor(Math.random() * 66));
+  const [ selectedBreed, setSelectedBreed ] = useState(1);
   const [breeds, setBreeds] = useState(null);
 
     useEffect(( )=> {
@@ -15,13 +15,25 @@ function App() {
         setBreeds(jsonResponse);
       }
       getBreeds();
+      console.log(breeds)
     },[]);
 
+    useEffect(( )=> {
+    
+    },selectedBreed);
+
+  const changeSelectedBreed = (newBreed) =>{
+    breeds.map((breed, index) =>{
+      if(breed.name == newBreed)
+        setSelectedBreed(index);
+    })
+    console.log(selectedBreed);
+  }
   return (
     <div className="App">
       {breeds === null ? (<h2>Loading...</h2>) : (
         <>
-      <TopBar breeds={breeds} />
+      <TopBar breeds={breeds} selectedBreedChange={changeSelectedBreed} />
       <FeaturedContent breeds={breeds} />
       <ImagesGrid breeds={breeds} selectedBreed={selectedBreed} />
       </>)}
