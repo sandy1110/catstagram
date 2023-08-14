@@ -5,10 +5,14 @@ import DetailedCatImage from "./DetailedCatImage";
 const GlobalCatImage = (props) => {
 
     const [visibility, setVisbility] = useState (false);
-
+    
     const showDetailedCat = () => {
-        console.log("showing cat");
+        console.log(props.id)
         setVisbility(true);
+    }
+
+    const hideDetailedCat = () => {
+        setVisbility(false);
     }
 
     return (
@@ -17,7 +21,7 @@ const GlobalCatImage = (props) => {
             <img className="cat-image" src={props.url} alt={props.id} />
         </div>
         {visibility && (
-        <DetailedCatImage />
+        <DetailedCatImage onVisibleChange={hideDetailedCat} />
         )}
         </>
     );

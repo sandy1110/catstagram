@@ -16,13 +16,18 @@
     background: #fff;
     position: relative;
     border-radius: 10px;
-    box-shadow: rgba(100,100,111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(22, 22, 25, 0.4) 0px 7px 20px 0px;
 }
 
 .header{
     display: flex;
     justify-content: space-between;
     padding: 10px 20px;
+}
+
+.button{
+    width: 25px;
+    box-shadow: rgba(22, 22, 25, 0.4) 0px 7px 20px 0px;
 }
 
 .detailed-image{

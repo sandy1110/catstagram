@@ -3,11 +3,16 @@ import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
 import "../styles/cardImage.css"
 
-const DetailedCatImage =() => {
+const DetailedCatImage =({onVisibleChange}) => {
+
+    const handleVisible = () =>{
+        onVisibleChange(false);
+    }
+
     const header = (
         <div className="header">
             <h3>Title</h3>
-            <Button label="X" icon="pi pi-times" className="p-button-outlined p-button-secondary" />
+            <Button label="X" className="button" onClick={handleVisible} />
         </div>
     );
 
