@@ -3,17 +3,18 @@ import TopBar from './components/TopBar';
 import React, { useState, useEffect } from "react";
 import FeaturedContent from './components/FeaturedContent';
 import ImagesGrid from './components/ImagesGrid';
-import DetailedCatImage from './components/DetailedCatImage';
 
 function App() {
 
   const [breeds, setBreeds] = useState(null);
 
     useEffect(( )=> {
-        fetch("https://api.thecatapi.com/v1/breeds").then(res=>{ return res.json()})
-        .then(res=>{
-            setBreeds(res);
-        })
+        const getBreeds = async () =>{
+          const response = await fetch("https://api.thecatapi.com/v1/breeds");
+          const jsonResponse = await response.json();
+          setBreeds(jsonResponse);
+        }
+        getBreeds();
     },[]);
 
   return (
