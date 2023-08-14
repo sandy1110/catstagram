@@ -5,23 +5,24 @@ import FeaturedContent from './components/FeaturedContent';
 import ImagesGrid from './components/ImagesGrid';
 
 function App() {
-
+  const [ selectedBreed, setSelectedBreed ] = useState(Math.floor(Math.random() * 66));
   const [breeds, setBreeds] = useState(null);
 
     useEffect(( )=> {
-        const getBreeds = async () =>{
-          const response = await fetch("https://api.thecatapi.com/v1/breeds");
-          const jsonResponse = await response.json();
-          setBreeds(jsonResponse);
-        }
-        getBreeds();
+      const getBreeds = async () =>{
+        const response = await fetch("https://api.thecatapi.com/v1/breeds");
+        const jsonResponse = await response.json();
+        setBreeds(jsonResponse);
+      }
+      getBreeds();
+      console.log(selectedBreed)
     },[]);
 
   return (
     <div className="App">
       <TopBar breeds={breeds} />
       <FeaturedContent breeds={breeds} />
-      <ImagesGrid />
+      <ImagesGrid breeds={breeds} selectedBreed={selectedBreed} />
     </div>
   );
 }

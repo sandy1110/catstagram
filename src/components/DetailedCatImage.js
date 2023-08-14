@@ -3,7 +3,7 @@ import { Card } from 'primereact/card';
 import { Button } from 'primereact/button';
 import "../styles/cardImage.css"
 
-const DetailedCatImage =({onVisibleChange}) => {
+const DetailedCatImage =({ breed, image, onVisibleChange }) => {
 
     const handleVisible = () =>{
         onVisibleChange(false);
@@ -11,7 +11,7 @@ const DetailedCatImage =({onVisibleChange}) => {
 
     const header = (
         <div className="header">
-            <h3>Title</h3>
+            <h3>{breed.name}</h3>
             <Button label="X" className="button" onClick={handleVisible} />
         </div>
     );
@@ -19,10 +19,9 @@ const DetailedCatImage =({onVisibleChange}) => {
     return (
         <div className="card-container">
             <Card header={header} className="card">
-                <img className="detailed-image" alt="Card" src="https://primefaces.org/cdn/primereact/images/usercard.png" />
+                <img className="detailed-image" alt="Card" src={image} />
                 <p className="cat-description">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae 
-                    numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+                    {breed.description}
                 </p>
             </Card>
         </div>

@@ -18,10 +18,10 @@ const GlobalCatImage = (props) => {
     return (
         <>
         <div className="cat-image-box" key={props.id} onClick={showDetailedCat}>
-            <img className="cat-image" src={props.url} alt={props.id} />
+            <img className="cat-image" src={props.catImage} alt={props.id} />
         </div>
         {visibility && (
-        <DetailedCatImage onVisibleChange={hideDetailedCat} />
+        <DetailedCatImage  image={props.catImage} onVisibleChange={hideDetailedCat} />
         )}
         </>
     );
