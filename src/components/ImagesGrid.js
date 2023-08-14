@@ -27,7 +27,7 @@ const ImagesGrid = () => {
         <>
         <div className="images-grid">
         {catsArray === null ? <h2>Loading...</h2> :catsArray.map(cat =>(
-            <GlobalCatImage id={cat.id} url={cat.url} />
+            <GlobalCatImage key={cat.id} id={cat.id} url={cat.url} />
         ))}
         </div>
         </>

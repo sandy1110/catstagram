@@ -3,6 +3,7 @@ import TopBar from './components/TopBar';
 import React, { useState, useEffect } from "react";
 import FeaturedContent from './components/FeaturedContent';
 import ImagesGrid from './components/ImagesGrid';
+import DetailedCatImage from './components/DetailedCatImage';
 
 function App() {
 

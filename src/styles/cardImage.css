@@ -1,0 +1,38 @@
+.card-container{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left:0;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    width: 80%;
+    max-width: 400px;
+    background: #fff;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: rgba(100,100,111, 0.2) 0px 7px 29px 0px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.detailed-image{
+    padding: 7%;
+    min-height: 300px;
+    min-width: 250px;
+    height: 100%;
+    width: 100%;
+}
+
+.cat-description{
+    padding: 2%  7%;
+}
