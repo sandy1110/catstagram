@@ -33,30 +33,40 @@ const TabBar = (props) => {
         setCatsArray(jsonResult);
     };
 
+    const handleHomeClick = () =>{
+        setToogleHistory(false);
+    }
+
+    const handleHistoryClick = () =>{
+        setToogleHistory(true);
+    }
+
     return (
-      <div>
-        <div className="tab-menu">
-            <div className="tab">
-                <i className="pi pi-home" style={{ fontSize: '1.3rem' }}></i>
-                <h4>Home</h4>
+        <div className="container">
+            <div>
+                <div className="tab-menu">
+                    <div className="tab">
+                        <i className="pi pi-home" style={{ fontSize: '1.3rem' }}></i>
+                        <button className="label" value="Home" onClick={handleHomeClick}>Home</button>
+                    </div>
+                    <div className="tab">
+                        <i className="pi pi-history" style={{ fontSize: '1.2rem' }}></i>
+                        <button className="label" onClick={handleHistoryClick}>History</button>
+                    </div>
             </div>
-            <div className="tab">
-                <i className="pi pi-history" style={{ fontSize: '1.2rem' }}></i>
-                <h4>History</h4>
+            <div className="images-grid">
+                    {catsArray.length === 0 ? (
+                    <h2>Loading...</h2>
+                    ) : ( !toogleHistory  ?
+                    catsArray.map((cat) => (
+                        <React.Fragment key={cat.id}>
+                            <GlobalCatImage id={cat.id} catImage={cat.url} 
+                                breed={selectedBreed} />
+                        </React.Fragment>
+                    ))  : <h2>History</h2>
+                )}
+                </div>
             </div>
-    </div>
-    <div className="images-grid">
-            {catsArray.length === 0 ? (
-            <h2>Loading...</h2>
-            ) : ( !toogleHistory  ?
-            catsArray.map((cat) => (
-                <React.Fragment key={cat.id}>
-                    <GlobalCatImage id={cat.id} catImage={cat.url} 
-                        breed={selectedBreed} />
-                </React.Fragment>
-            ))  : <h2>History</h2>
-        )}
-        </div>
       </div>
     );
   };

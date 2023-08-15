@@ -1,3 +1,7 @@
+.container{
+    width: 100%;
+}
+
 .tab-menu{
     width: 100%;
     display:flex;
@@ -12,6 +16,10 @@
     align-items: center;
     justify-content: center;
     color: rgb(66, 50, 81);
+}
+
+.label{
+    border:none;
 }
 
 .images-grid{
