@@ -15,8 +15,12 @@ function App() {
         setBreeds(jsonResponse);
       }
       getBreeds();
-      console.log(breeds)
+      console.log(selectedBreed)
     },[]);
+
+    useEffect(()=>{
+      renderBreed();
+    },selectedBreed)
 
   const changeSelectedBreed = (newBreed) =>{
     breeds.map((breed, index) =>{
@@ -25,13 +29,19 @@ function App() {
     })
     console.log(selectedBreed);
   }
+
+  const renderBreed = () =>{
+    return(
+      <ImagesGrid breeds={breeds} selectedBreed={selectedBreed} />
+    );
+  }
   return (
     <div className="App">
       {breeds === null ? (<h2>Loading...</h2>) : (
         <>
       <TopBar breeds={breeds} selectedBreedChange={changeSelectedBreed} />
       <FeaturedContent breeds={breeds} />
-      <ImagesGrid breeds={breeds} selectedBreed={selectedBreed} />
+      {renderBreed()}
       </>)}
     </div>
   );

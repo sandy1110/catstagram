@@ -3,7 +3,8 @@ import React, {useEffect, useState} from "react";
 import GlobalCatImage from "./GlobalCatImage";
 import 'primeicons/primeicons.css';
 
-const ImagesGrid = (props) => {
+const TabBar = (props) => {
+    const [ toogleHistory, setToogleHistory] = useState(false);
     const breeds = props.breeds;
     const [selectedBreed, setSelectedBreed] = useState(breeds[props.selectedBreed]);
     const API_URL = `https://api.thecatapi.com/v1/images/search?breed_ids=${selectedBreed.id}&limit=20`
@@ -12,11 +13,13 @@ const ImagesGrid = (props) => {
   
     useEffect(() => {
         requestCats();
-        console.log(catsArray)
+        console.log(catsArray);
     }, []);
 
     useEffect(() => {
+        setSelectedBreed(breeds[props.selectedBreed]);
         requestCats();
+        console.log("new breed", selectedBreed);
     }, selectedBreed);
   
     const requestCats = async () => {
@@ -29,7 +32,7 @@ const ImagesGrid = (props) => {
         const jsonResult = await apiResponse.json();
         setCatsArray(jsonResult);
     };
-  
+
     return (
       <div>
         <div className="tab-menu">
@@ -41,21 +44,21 @@ const ImagesGrid = (props) => {
                 <i className="pi pi-history" style={{ fontSize: '1.2rem' }}></i>
                 <h4>History</h4>
             </div>
-        </div>
-        <div className="images-grid">
-          {catsArray.length === 0 ? (
+    </div>
+    <div className="images-grid">
+            {catsArray.length === 0 ? (
             <h2>Loading...</h2>
-          ) : (
+            ) : ( !toogleHistory  ?
             catsArray.map((cat) => (
                 <React.Fragment key={cat.id}>
                     <GlobalCatImage id={cat.id} catImage={cat.url} 
                         breed={selectedBreed} />
-              </React.Fragment>
-            ))
-          )}
+                </React.Fragment>
+            ))  : <h2>History</h2>
+        )}
         </div>
       </div>
     );
   };
 
-export default ImagesGrid;
+export default TabBar;
