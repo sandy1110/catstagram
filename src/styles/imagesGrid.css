@@ -1,3 +1,19 @@
+.tab-menu{
+    width: 100%;
+    display:flex;
+    padding: 12px 0px;
+    border-bottom: 1px solid rgb(66, 50, 81);
+}
+
+.tab{
+    width:50%;
+    display: flex;
+    column-gap: 10px;
+    align-items: center;
+    justify-content: center;
+    color: rgb(66, 50, 81);
+}
+
 .images-grid{
     width: 100%;
     padding: 20px 20px;

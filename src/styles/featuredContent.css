@@ -23,6 +23,7 @@
     max-height: 60px;
     width:60px;
     border-radius: 3.5em;
+    border-bottom: 3px solid gray;
 }
 
 .featured-cat-name{

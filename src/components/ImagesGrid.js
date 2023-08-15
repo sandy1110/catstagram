@@ -1,11 +1,12 @@
 import "../styles/imagesGrid.css"
 import React, {useEffect, useState} from "react";
 import GlobalCatImage from "./GlobalCatImage";
+import 'primeicons/primeicons.css';
 
 const ImagesGrid = (props) => {
     const breeds = props.breeds;
     const [selectedBreed, setSelectedBreed] = useState(breeds[props.selectedBreed]);
-    const API_URL = `https://api.thecatapi.com/v1/images/search?breed_ids=${selectedBreed.id}&limit=40`
+    const API_URL = `https://api.thecatapi.com/v1/images/search?breed_ids=${selectedBreed.id}&limit=20`
     const API_KEY = "cc87643e-9491-43ec-a884-5bfb536d96c4";
     const [catsArray, setCatsArray] = useState([]);
   
@@ -30,7 +31,17 @@ const ImagesGrid = (props) => {
     };
   
     return (
-      <>
+      <div>
+        <div className="tab-menu">
+            <div className="tab">
+                <i className="pi pi-home" style={{ fontSize: '1.3rem' }}></i>
+                <h4>Home</h4>
+            </div>
+            <div className="tab">
+                <i className="pi pi-history" style={{ fontSize: '1.2rem' }}></i>
+                <h4>History</h4>
+            </div>
+        </div>
         <div className="images-grid">
           {catsArray.length === 0 ? (
             <h2>Loading...</h2>
@@ -43,7 +54,7 @@ const ImagesGrid = (props) => {
             ))
           )}
         </div>
-      </>
+      </div>
     );
   };
 

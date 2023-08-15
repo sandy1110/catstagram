@@ -18,10 +18,6 @@ function App() {
       console.log(breeds)
     },[]);
 
-    useEffect(( )=> {
-    
-    },selectedBreed);
-
   const changeSelectedBreed = (newBreed) =>{
     breeds.map((breed, index) =>{
       if(breed.name == newBreed)
