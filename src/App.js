@@ -5,7 +5,7 @@ import FeaturedContent from './components/FeaturedContent';
 import ImagesGrid from './components/ImagesGrid';
 
 function App() {
-  const [ selectedBreed, setSelectedBreed ] = useState(1);
+  const [ selectedBreed, setSelectedBreed ] = useState(10);
   const [breeds, setBreeds] = useState(null);
 
     useEffect(( )=> {

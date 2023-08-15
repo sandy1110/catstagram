@@ -7,19 +7,17 @@ const TabBar = (props) => {
     const [ toogleHistory, setToogleHistory] = useState(false);
     const breeds = props.breeds;
     const [selectedBreed, setSelectedBreed] = useState(breeds[props.selectedBreed]);
-    const API_URL = `https://api.thecatapi.com/v1/images/search?breed_ids=${selectedBreed.id}&limit=20`
+    const API_URL = `https://api.thecatapi.com/v1/images/search?limit=20&breed_ids=${selectedBreed.id}`
     const API_KEY = "cc87643e-9491-43ec-a884-5bfb536d96c4";
     const [catsArray, setCatsArray] = useState([]);
   
     useEffect(() => {
         requestCats();
-        console.log(catsArray);
     }, []);
 
     useEffect(() => {
         setSelectedBreed(breeds[props.selectedBreed]);
         requestCats();
-        console.log("new breed", selectedBreed);
     }, selectedBreed);
   
     const requestCats = async () => {
